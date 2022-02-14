@@ -8,6 +8,7 @@ package edu.eci.arsw.blueprints.services;
 import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
+import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
 import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -26,10 +27,20 @@ public class BlueprintsServices {
     BlueprintsPersistence bpp=null;
     
     public void addNewBlueprint(Blueprint bp){
-        
+        try {
+            bpp.saveBlueprint(bp);
+        } catch (BlueprintPersistenceException e) {
+            e.printStackTrace();
+        }
+
     }
     
     public Set<Blueprint> getAllBlueprints(){
+        try {
+            return bpp.getAllBlueprints();
+        } catch (BlueprintNotFoundException e) {
+            e.printStackTrace();
+        }
         return null;
     }
     
@@ -41,7 +52,12 @@ public class BlueprintsServices {
      * @throws BlueprintNotFoundException if there is no such blueprint
      */
     public Blueprint getBlueprint(String author,String name) throws BlueprintNotFoundException{
-        throw new UnsupportedOperationException("Not supported yet."); 
+        try{
+            return bpp.getBlueprint(author, name);
+        }catch (BlueprintNotFoundException ex){
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
+
     }
     
     /**
@@ -51,7 +67,11 @@ public class BlueprintsServices {
      * @throws BlueprintNotFoundException if the given author doesn't exist
      */
     public Set<Blueprint> getBlueprintsByAuthor(String author) throws BlueprintNotFoundException{
-        throw new UnsupportedOperationException("Not supported yet."); 
+        try{
+            return bpp.getBlueprintsByAuthor(author);
+        }catch (BlueprintNotFoundException ex){
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
     }
     
 }
