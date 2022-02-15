@@ -9,6 +9,7 @@ import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
+import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
 import edu.eci.arsw.blueprints.persistence.impl.InMemoryBlueprintPersistence;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -68,6 +69,15 @@ public class InMemoryPersistenceTest {
                 
         
     }
+
+    @Test
+    public void getNonExistingBlueprintTest(){
+        BlueprintsPersistence ibpp = new InMemoryBlueprintPersistence();
+
+
+
+    }
+
 
 
     

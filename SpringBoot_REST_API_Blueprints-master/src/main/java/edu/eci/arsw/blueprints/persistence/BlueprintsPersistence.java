@@ -6,6 +6,9 @@
 package edu.eci.arsw.blueprints.persistence;
 
 import edu.eci.arsw.blueprints.model.Blueprint;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 
 import java.util.Set;
@@ -14,7 +17,7 @@ import java.util.Set;
  *
  * @author hcadavid
  */
-
+@Controller
 public interface BlueprintsPersistence {
     
     /**

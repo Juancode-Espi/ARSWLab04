@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Set;
 
-public class Aplication {
+public class Application {
 
     public static void main(String[] args){
         ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
