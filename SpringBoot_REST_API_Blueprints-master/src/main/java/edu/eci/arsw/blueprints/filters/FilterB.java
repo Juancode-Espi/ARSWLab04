@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class FilterB implements Filters{
+public class FilterB implements Filters {
 
     @Override
     public void filterAllBlueprints(Set<Blueprint> blueprints) {
-        for(Blueprint blueprint : blueprints){
+        for (Blueprint blueprint : blueprints) {
             List<Point> points = blueprint.getPoints();
             List<Point> newPoints = segmentPoints(points);
             blueprint.setPoints(newPoints);
@@ -25,10 +25,10 @@ public class FilterB implements Filters{
         blueprint.setPoints(newPoints);
     }
 
-    private List<Point> segmentPoints(List<Point> pts){
-        List <Point> newPts = new ArrayList<>();
-        for(int i=0; i < pts.size(); i++){
-            if( i%2 == 0 ){
+    private List<Point> segmentPoints(List<Point> pts) {
+        List<Point> newPts = new ArrayList<>();
+        for (int i = 0; i < pts.size(); i++) {
+            if (i % 2 == 0) {
                 newPts.add(pts.get(i));
             }
         }
